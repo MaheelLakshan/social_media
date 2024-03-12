@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:social_media/login_page.dart';
+import 'package:social_media/pages/login_page.dart';
+import 'package:social_media/styles/app_colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        fontFamily: 'Urbanist',
-      ),
+          fontFamily: 'Urbanist',
+          scaffoldBackgroundColor: AppColors.backgroundColor),
       home: LoginPage(),
     );
   }
