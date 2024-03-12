@@ -77,10 +77,7 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                         // ignore: avoid_print
                         // print('Login is clicked');
-                        Navigator.of(context)
-                            .push(MaterialPageRoute(builder: (context) {
-                          return const HomePage();
-                        }));
+                        Navigator.of(context).pushReplacementNamed('/main');
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.amber,
