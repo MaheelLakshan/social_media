@@ -74,23 +74,41 @@ class LoginPage extends StatelessWidget {
                 child: const Text(
                   'Log in',
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 15,
                     fontWeight: FontWeight.bold,
                   ),
                 )),
           ),
-          const Text('Or sign in with '),
+          const SizedBox(
+            height: 68,
+          ),
+          const Text(
+            'Or sign-in with ',
+            style: TextStyle(color: Colors.white),
+          ),
+          const SizedBox(
+            height: 12,
+          ),
           ElevatedButton(
             onPressed: () {
               // ignore: avoid_print
               print('Google is clicked');
             },
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.lightBlue,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)))),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   'asserts/images/google png.png',
                   height: 16,
                   width: 16,
+                ),
+                const SizedBox(
+                  width: 8,
                 ),
                 const Text('Login with Google')
               ],
@@ -101,12 +119,21 @@ class LoginPage extends StatelessWidget {
               // ignore: avoid_print
               print('Facebook is clicked');
             },
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.lightBlue,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10)))),
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
                   'asserts/images/facebook png.png',
                   height: 16,
                   width: 16,
+                ),
+                const SizedBox(
+                  width: 8,
                 ),
                 const Text('Login with Facebook')
               ],
@@ -114,8 +141,23 @@ class LoginPage extends StatelessWidget {
           ),
           Row(
             children: [
-              const Text("Don't have an account ?"),
-              TextButton(onPressed: () {}, child: const Text('Sign Up'))
+              const Text(
+                "Don't have an account ?",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.amber,
+                  ),
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                    ),
+                  ))
             ],
           )
         ],
