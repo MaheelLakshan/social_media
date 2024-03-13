@@ -54,7 +54,7 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  final pages = const [
+  final pages = [
     HomePage(),
     Center(child: const Text('Favorite')),
     Center(child: const Text('Add Post')),

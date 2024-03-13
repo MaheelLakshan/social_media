@@ -1,47 +1,35 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/components/post_item.dart';
 import 'package:social_media/styles/app_colors.dart';
+import 'package:social_media/styles/app_text.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  HomePage({super.key});
+
+  List<String> users = [];
 
   @override
   Widget build(BuildContext context) {
+    mockUsersFromServer();
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.backgroundColor,
-        title: const Text('5min flutter'),
-        centerTitle: false,
-        actions: [
-          Icon(Icons.location_on_outlined),
-        ],
-      ),
-      body: ListView(
-        children: mockUsersFromServer(),
-      ),
-    );
+        appBar: AppBar(
+          backgroundColor: AppColors.backgroundColor,
+          title: const Text('5min flutter'),
+          centerTitle: false,
+          actions: [
+            Icon(Icons.location_on_outlined),
+          ],
+        ),
+        body: ListView.builder(itemBuilder: (context, index) {
+          return PostItem(
+            user: users[index],
+          );
+        }));
   }
 
-  Widget _userItem() {
-    return Row(
-      children: [
-        Image.asset(
-          'asserts/temp/Final.jpg',
-          width: 60,
-          height: 60,
-        ),
-        const SizedBox(
-          width: 8,
-        ),
-        const Text('Maheel Lakshan'),
-      ],
-    );
-  }
-
-  List<Widget> mockUsersFromServer() {
-    List<Widget> users = [];
+  mockUsersFromServer() {
     for (var i = 0; i < 100; i++) {
-      users.add(_userItem());
+      users.add('User number $i');
     }
-    return users;
   }
 }
