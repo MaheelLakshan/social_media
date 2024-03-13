@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/components/post_item.dart';
+import 'package:social_media/components/toolbar.dart';
 import 'package:social_media/styles/app_colors.dart';
 import 'package:social_media/styles/app_text.dart';
 
@@ -12,12 +13,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     mockUsersFromServer();
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppColors.backgroundColor,
-          title: const Text('5min flutter'),
-          centerTitle: false,
+        appBar:  ToolBar(
+          title: '5min Flutter',
           actions: [
-            Icon(Icons.location_on_outlined),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.my_location),
+            )
           ],
         ),
         body: ListView.separated(

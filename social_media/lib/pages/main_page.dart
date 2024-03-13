@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/pages/home_page.dart';
+import 'package:social_media/pages/profile_page.dart';
 // import 'package:flutter_svg/svg.dart';
 import 'package:social_media/styles/app_colors.dart';
 
@@ -49,7 +50,7 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.blueGrey,
       ),
     );
   }
@@ -59,6 +60,6 @@ class _MainPageState extends State<MainPage> {
     Center(child: const Text('Favorite')),
     Center(child: const Text('Add Post')),
     Center(child: const Text('Message')),
-    Center(child: const Text('Users')),
+    ProfilePage(),
   ];
 }
