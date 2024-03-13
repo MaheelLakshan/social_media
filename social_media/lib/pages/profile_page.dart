@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/components/toolbar.dart';
+import 'package:social_media/config/app_routes.dart';
 import 'package:social_media/styles/app_text.dart';
 
 enum ProfileMenu { edit, logout }
@@ -17,7 +18,7 @@ class ProfilePage extends StatelessWidget {
             onSelected: (value) {
               switch (value) {
                 case ProfileMenu.edit:
-                  print('dasd');
+                  Navigator.of(context).pushNamed(AppRoutes.editProfile);
                   break;
                 case ProfileMenu.logout:
                   print('object');

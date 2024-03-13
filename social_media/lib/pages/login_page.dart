@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/config/app_routes.dart';
 import 'package:social_media/pages/home_page.dart';
 
 class LoginPage extends StatelessWidget {
@@ -55,7 +56,7 @@ class LoginPage extends StatelessWidget {
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     filled: true,
-                    fillColor: Colors.white,
+                    fillColor: Color.fromARGB(255, 138, 128, 128),
                   ),
                 ),
                 Align(
@@ -77,7 +78,8 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                         // ignore: avoid_print
                         // print('Login is clicked');
-                        Navigator.of(context).pushReplacementNamed('/main');
+                        Navigator.of(context)
+                            .pushReplacementNamed(AppRoutes.main);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.amber,

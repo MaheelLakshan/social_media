@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:social_media/config/app_routes.dart';
+import 'package:social_media/pages/edit_profile_page.dart';
 import 'package:social_media/pages/home_page.dart';
 import 'package:social_media/pages/login_page.dart';
 import 'package:social_media/pages/main_page.dart';
@@ -19,12 +21,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.backgroundColor,
         brightness: Brightness.dark,
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const LoginPage(),
-        '/home': (context) => HomePage(),
-        '/main': (context) => const MainPage(),
-      },
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.pages,
     );
   }
 }
