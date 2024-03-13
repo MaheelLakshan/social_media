@@ -28,7 +28,7 @@ class PostItem extends StatelessWidget {
             ],
           ),
           const SizedBox(
-            height: 24,
+            height: 12,
           ),
           Image.asset(
             'asserts/temp/Final.jpg',
