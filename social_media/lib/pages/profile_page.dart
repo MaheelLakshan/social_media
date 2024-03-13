@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/components/toolbar.dart';
+import 'package:social_media/components/user_avatar.dart';
 import 'package:social_media/config/app_routes.dart';
 import 'package:social_media/styles/app_text.dart';
 
@@ -43,13 +44,8 @@ class ProfilePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(454)),
-            child: Image.asset(
-              'asserts/temp/Final.jpg',
-              height: 150,
-              width: 150,
-            ),
+          UserAvatar(
+            size: 150,
           ),
           const SizedBox(
             height: 24,
