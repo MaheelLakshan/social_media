@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_media/components/post_item.dart';
 import 'package:social_media/components/toolbar.dart';
+import 'package:social_media/config/app_routes.dart';
 import 'package:social_media/styles/app_colors.dart';
 import 'package:social_media/styles/app_text.dart';
 
@@ -13,12 +14,14 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     mockUsersFromServer();
     return Scaffold(
-        appBar:  ToolBar(
+        appBar: ToolBar(
           title: '5min Flutter',
           actions: [
             IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.my_location),
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.nearby);
+              },
+              icon: const Icon(Icons.my_location),
             )
           ],
         ),

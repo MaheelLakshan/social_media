@@ -1,9 +1,21 @@
+import 'dart:convert';
+// import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:social_media/config/app_routes.dart';
-import 'package:social_media/pages/home_page.dart';
+import 'package:http/http.dart' as http;
+import 'package:social_media/user_provider.dart';
+
+import '../model/user.dart';
+
+const baseUrl = 'http://localhost:8000';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final loginRoute = '$baseUrl/login';
+  var username = '';
+  var password = '';
+  // final usernameController = TextEditingController();
+  // final passwordController = TextEditingController();
+  LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +50,11 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                const TextField(
+                TextField(
+                  //
+                  onChanged: (value) {
+                    username = value;
+                  },
                   decoration: InputDecoration(
                     hintText: 'User Name',
                     border: OutlineInputBorder(
@@ -50,7 +66,11 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                const TextField(
+                TextField(
+                  // controller: passwordController,
+                  onChanged: (value) {
+                    password = value;
+                  },
                   decoration: InputDecoration(
                     hintText: 'Password',
                     border: OutlineInputBorder(
@@ -75,9 +95,9 @@ class LoginPage extends StatelessWidget {
                   height: 40,
                   width: double.infinity,
                   child: ElevatedButton(
-                      onPressed: () {
-                        // ignore: avoid_print
-                        // print('Login is clicked');
+                      onPressed: () async {
+                        final user = await doLogin();
+                        UserProvider.of(context)?.updateUser(user);
                         Navigator.of(context)
                             .pushReplacementNamed(AppRoutes.main);
                       },
@@ -195,5 +215,23 @@ class LoginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<User> doLogin() async {
+    // final username = usernameController.text;
+    // final password = passwordController.text;
+    final body = {'username': username, 'password': password};
+    final response =
+        await http.post(Uri.parse(loginRoute), body: jsonEncode(body));
+
+    if (response.statusCode == 200) {
+      print(response.body);
+      final json = jsonDecode(response.body);
+      final user = User.fromJson(json['data']);
+      return user;
+    } else {
+      print("you have an error");
+      throw Exception("Error");
+    }
   }
 }
