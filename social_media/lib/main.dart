@@ -4,13 +4,15 @@ import 'package:social_media/pages/edit_profile_page.dart';
 import 'package:social_media/pages/home_page.dart';
 import 'package:social_media/pages/login_page.dart';
 import 'package:social_media/pages/main_page.dart';
+import 'package:social_media/provider/app_repo.dart';
 import 'package:social_media/styles/app_colors.dart';
 import 'package:social_media/user_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'model/user.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider<AppRepo>, const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,17 +20,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return UserProvider(
-      userService: UserService(),
-      child: MaterialApp(
-        theme: ThemeData(
-          fontFamily: 'Urbanist',
-          scaffoldBackgroundColor: AppColors.backgroundColor,
-          brightness: Brightness.dark,
-        ),
-        initialRoute: AppRoutes.login,
-        routes: AppRoutes.pages,
+    return MaterialApp(
+      theme: ThemeData(
+        fontFamily: 'Urbanist',
+        scaffoldBackgroundColor: AppColors.backgroundColor,
+        brightness: Brightness.dark,
       ),
+      initialRoute: AppRoutes.login,
+      routes: AppRoutes.pages,
     );
   }
 }
