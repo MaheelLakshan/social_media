@@ -15,6 +15,7 @@ class LoginService {
           username: username,
           password: password,
         }));
+
     return LoginResponse.fromJson(jsonDecode(result.body)["data"]);
   }
 }

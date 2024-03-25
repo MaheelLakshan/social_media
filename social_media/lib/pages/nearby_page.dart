@@ -22,30 +22,30 @@ class NearbyPage extends StatelessWidget {
           ),
           MarkerLayer(
             markers: [
-              Marker(
-                  width: 100,
-                  height: 50,
-                  point: LatLng(52.11, -0.23),
-                  builder: (context) {
-                    return Column(children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
-                        decoration: const BoxDecoration(
-                            color: Colors.white,
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(14))),
-                        child: const Text(
-                          'UserName',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ),
-                      Icon(
-                        Icons.location_on_outlined,
-                        color: Colors.red,
-                      )
-                    ]);
-                  })
+              // Marker(
+              //     width: 100,
+              //     height: 50,
+              //     point: LatLng(52.11, -0.23),
+              //     builder: (context) {
+              //       return Column(children: [
+              //         Container(
+              //           padding: const EdgeInsets.symmetric(
+              //               horizontal: 8, vertical: 4),
+              //           decoration: const BoxDecoration(
+              //               color: Colors.white,
+              //               borderRadius:
+              //                   BorderRadius.all(Radius.circular(14))),
+              //           child: const Text(
+              //             'UserName',
+              //             style: TextStyle(color: Colors.black),
+              //           ),
+              //         ),
+              //         Icon(
+              //           Icons.location_on_outlined,
+              //           color: Colors.red,
+              //         )
+              //       ]);
+              //     })
             ],
           )
         ],

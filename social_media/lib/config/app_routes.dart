@@ -13,7 +13,7 @@ class AppRoutes {
     login: (context) => ChangeNotifierProvider(
           create: (context) => LoginProvider(),
           child: LoginPage(),
-        ), 
+        ),
     home: (context) => HomePage(),
     main: (context) => MainPage(),
     editProfile: (context) => EditProfilePage(),
