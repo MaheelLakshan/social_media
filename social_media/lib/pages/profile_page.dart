@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:social_media/components/toolbar.dart';
 import 'package:social_media/components/user_avatar.dart';
 import 'package:social_media/config/app_routes.dart';
+import 'package:social_media/provider/app_repo.dart';
 import 'package:social_media/styles/app_text.dart';
-import 'package:social_media/user_provider.dart';
 
 enum ProfileMenu { edit, logout }
 
@@ -12,7 +13,7 @@ class ProfilePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = UserProvider.of(context)?.user;
+    final user = context.read<AppRepo>().user;
     return Scaffold(
       appBar: ToolBar(
         title: "Profile",
